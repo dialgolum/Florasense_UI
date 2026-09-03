@@ -1,0 +1,899 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-on-surface": "#eaf1ff",
+                "surface-variant": "#d9e3f6",
+                "on-error": "#ffffff",
+                "outline-variant": "#bec9c2",
+                "on-primary-fixed-variant": "#00513b",
+                "on-surface-variant": "#3f4944",
+                "error": "#ba1a1a",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#43474c",
+                "secondary-fixed": "#dfe3e9",
+                "surface-bright": "#f8f9ff",
+                "surface-container-high": "#dee9fc",
+                "outline": "#6f7973",
+                "tertiary-fixed": "#ffddb8",
+                "on-background": "#121c2a",
+                "surface-container-low": "#eff4ff",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#8bd6b6",
+                "surface-dim": "#d0dbed",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#764900",
+                "on-surface": "#121c2a",
+                "secondary": "#5a5f64",
+                "primary-fixed": "#a6f2d1",
+                "primary": "#004532",
+                "on-tertiary-container": "#ffb960",
+                "secondary-fixed-dim": "#c3c7cd",
+                "on-tertiary-fixed": "#2a1700",
+                "error-container": "#ffdad6",
+                "surface-container-highest": "#d9e3f6",
+                "secondary-container": "#dfe3e9",
+                "on-tertiary-fixed-variant": "#653e00",
+                "on-primary-container": "#8bd6b7",
+                "on-secondary": "#ffffff",
+                "inverse-surface": "#27313f",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#171c20",
+                "primary-container": "#065f46",
+                "on-secondary-container": "#60656a",
+                "primary-fixed-dim": "#8bd6b6",
+                "surface-container": "#e6eeff",
+                "tertiary": "#563400",
+                "surface": "#f8f9ff",
+                "surface-tint": "#1b6b51",
+                "on-primary-fixed": "#002116",
+                "background": "#f8f9ff",
+                "tertiary-fixed-dim": "#ffb95f"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "md": "24px",
+                "xl": "64px",
+                "lg": "40px",
+                "margin-mobile": "16px",
+                "sm": "12px",
+                "base": "8px",
+                "xs": "4px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "headline-lg": ["Hanken Grotesk", "sans-serif"],
+                "headline-lg-mobile": ["Hanken Grotesk", "sans-serif"],
+                "display-lg": ["Hanken Grotesk", "sans-serif"],
+                "body-sm": ["Hanken Grotesk", "sans-serif"],
+                "body-md": ["Hanken Grotesk", "sans-serif"],
+                "label-mono": ["JetBrains Mono", "monospace"],
+                "title-md": ["Hanken Grotesk", "sans-serif"]
+        },
+        "fontSize": {
+                "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+        }
+      },
+    },
+  }
+</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-row min-h-screen">
+<!-- ================= FIXED LEFT VERTICAL SIDEBAR ================= -->
+<aside class="fixed top-0 left-0 bottom-0 w-64 z-50 bg-[#eef4fc] border-r border-[#d5e2f5] flex flex-col justify-between py-6 px-4 shrink-0 select-none shadow-sm">
+<!-- Top Brand & Navigation Section -->
+<div class="flex flex-col gap-6">
+<!-- Brand Header -->
+<div class="px-2 pt-1 flex flex-col">
+<h1 class="text-2xl font-bold tracking-tight text-[#004532]">Florasense</h1>
+<span class="text-[10px] font-semibold tracking-[0.14em] text-on-surface-variant/80 uppercase mt-0.5">COMMERCIAL NURSERY PORTAL</span>
+</div>
+<!-- Navigation List -->
+<nav class="flex flex-col gap-1.5 mt-2">
+<!-- Plant ID & Chat -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-[#dfeaf9] hover:text-[#004532] transition-colors font-medium text-[15px]" href="#">
+<span class="material-symbols-outlined text-[21px]">psychology</span>
+<span class="">Plant ID &amp; Chat</span>
+</a>
+<!-- Disease Scanner -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-[#dfeaf9] hover:text-[#004532] transition-colors font-medium text-[15px]" href="#">
+<span class="material-symbols-outlined text-[21px]">qr_code_scanner</span>
+<span class="">Disease Scanner</span>
+</a>
+<!-- Export Quality (Active State) -->
+<a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-full bg-[#065f46] text-white shadow-sm font-semibold text-[15px]" href="#">
+<span class="material-symbols-outlined text-[21px] text-[#8bd6b7]">verified</span>
+<span class="">Export Quality</span>
+</a>
+<!-- Supply Forecast -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-[#dfeaf9] hover:text-[#004532] transition-colors font-medium text-[15px]" href="#">
+<span class="material-symbols-outlined text-[21px]">trending_up</span>
+<span class="">Supply Forecast</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Utility & Profile Section -->
+<div class="flex flex-col gap-2 pt-4 border-t border-[#d5e2f5]">
+<a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-on-surface-variant hover:bg-[#dfeaf9] hover:text-[#004532] transition-colors font-medium text-[14px]" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-on-surface-variant hover:bg-[#dfeaf9] hover:text-[#004532] transition-colors font-medium text-[14px]" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="">Support</span>
+</a>
+<div class="flex items-center gap-3 px-3 py-2 mt-1 rounded-xl hover:bg-[#dfeaf9]/60 transition-colors cursor-pointer text-on-surface">
+<div class="w-8 h-8 rounded-full bg-[#d0dbed] flex items-center justify-center text-[#004532]">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[14px] font-semibold text-on-surface leading-tight">Nursery Manager</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ================= RIGHT WORKSPACE AREA ================= -->
+<div class="flex-1 ml-64 flex flex-col min-h-screen bg-surface min-w-0">
+<header class="sticky top-0 w-full z-40 bg-surface/90 backdrop-blur-xl border-b border-surface-variant/50 shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 w-full px-6 md:px-8 flex items-center justify-between"><div class="flex items-center gap-3"><div class="flex items-center gap-2"><span class="font-headline-sm text-title-md text-primary tracking-tight font-bold">PhytoAudit</span><span class="text-outline font-body-sm">/</span><span class="font-semibold text-[15px] text-on-surface">Plant Export Compliance</span></div><div class="hidden sm:flex items-center gap-1 text-on-surface-variant font-body-sm text-[13px] ml-2"><span class="hover:text-on-surface cursor-pointer">Inspection Hub</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="hover:text-on-surface cursor-pointer">Phytosanitary Protocol</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="text-on-surface font-label-mono font-semibold">LOT-8821-EXP</span></div><div class="hidden lg:flex items-center ml-2 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-primary mr-1.5 animate-pulse"></span><span class="font-label-mono text-[11px] uppercase tracking-wider font-semibold">Live Batch Inspection</span></div></div><div class="flex items-center gap-4"><nav class="hidden xl:flex items-center gap-1 bg-surface-container-low p-1 rounded-xl"><a aria-current="page" class="px-3 py-1.5 transition-colors bg-primary-container text-on-primary font-semibold text-[13px] rounded-lg shadow-sm" data-path="batch-assessment" href="#">Batch Assessment</a><a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-medium text-[13px] transition-colors" data-path="phytosanitary-records" href="#">Phytosanitary Records</a><a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-medium text-[13px] transition-colors" data-path="lab-diagnostics" href="#">Lab Diagnostics</a><a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-medium text-[13px] transition-colors" data-path="quarantine-clearance" href="#">Quarantine Clearance</a></nav><div class="flex items-center gap-2"><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-2 pl-3 border-l border-outline-variant/30"><div class="text-right hidden sm:block"><div class="font-semibold text-[13px] text-on-surface">Dr. Elena Vance</div><div class="text-[12px] text-on-surface-variant">Lead Agronomist (QA-7)</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSHN9Jo2JOU93ZTUgB_KV9VEklr3o4ljsXH7gN65V-qxDME6zGVeuz8HaFd3XiqlQUk8FAVlxeVjkG-f_2bceQUNqU0vNCEN8GWZHYHy3FbhsGWMtQw-wLn05SuaODgbO4UefnSu9VWg8Tc7h69SCGjI9_qWr04keHwblhxPFQc5TWFWRK3Yv9BN8cdujFCjHajqOK4qQrGEGaPGzEMirMBtY3oL3L6lxCaKJVyecRjZOc2jpN32fK"></div></div></div></div></header>
+<main class="w-full bg-surface min-h-screen flex flex-col flex-1"><div class="flex flex-col w-full">
+<!-- Toast Notification Container -->
+<div class="fixed top-20 right-6 z-50 flex flex-col gap-2 pointer-events-none" id="toast-container"></div>
+<!-- Global Inspection Context Header -->
+<section class="w-full bg-surface-container-low px-6 md:px-8 py-3.5 border-b border-surface-variant/40 shadow-sm">
+<div class="w-full flex flex-col xl:flex-row items-start xl:items-center justify-between gap-4">
+<!-- Left: Batch Primary Specs -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-base md:text-lg text-on-surface">Batch EXP-2024-8849</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container text-[11px] font-semibold uppercase tracking-wider">Pre-Shipment Audit</span>
+</div>
+<p class="text-[13px] text-on-surface-variant">Ficus Lyrata ‘Bambino’ • Dwarf Fiddle Leaf Fig</p>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-variant hidden md:block"></div>
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-surface-variant/40 shadow-xs">
+<span class="text-[11px] text-on-surface-variant block uppercase tracking-wider font-semibold">Total Consignment</span>
+<span class="font-label-mono text-[13px] text-on-surface font-semibold">120 Units (Pots)</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-surface-variant/40 shadow-xs">
+<span class="text-[11px] text-on-surface-variant block uppercase tracking-wider font-semibold">Representative Sample</span>
+<span class="font-label-mono text-[13px] text-primary font-semibold">12 Inspected (10%)</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-surface-variant/40 shadow-xs">
+<span class="text-[11px] text-on-surface-variant block uppercase tracking-wider font-semibold">Destination Terminal</span>
+<span class="font-label-mono text-[13px] text-on-surface font-semibold">Rotterdam (NLRTM) • EU Phytosanitary</span>
+</div>
+</div>
+</div>
+<!-- Right: Buyer Spec Sync Status -->
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Contracting Buyer</div>
+<div class="text-[14px] text-on-surface font-semibold">FloraCorp International B.V.</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-surface-variant/40">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></div>
+<span class="text-[12px] text-primary-container font-semibold uppercase tracking-wider">Rules Synced</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Grid: Full available width with balanced padding -->
+<div class="w-full px-6 md:px-8 py-6 flex flex-col gap-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- ================= LEFT COLUMN: BUYER REQUIREMENTS (5 Cols) ================= -->
+<section class="lg:col-span-5 flex flex-col gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-surface-variant/40 shadow-sm flex flex-col gap-4">
+<!-- Card Header -->
+<div class="flex items-start justify-between gap-3">
+<div>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<h2 class="font-headline-sm text-[18px] text-on-surface font-bold">Buyer Requirements</h2>
+</div>
+<p class="text-[13px] text-on-surface-variant mt-0.5">Target quality limits prescribed for Lot Clearance</p>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-semibold text-[13px] flex items-center gap-1 shadow-sm hover:opacity-95 transition-all" id="open-add-req-modal" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+              Add Rule
+            </button>
+</div>
+<!-- Quick Presets -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2">
+<span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Standard Export Profiles</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="preset-pill px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface text-[12px] font-medium hover:bg-primary-container hover:text-on-primary transition-colors" onclick="applyPreset('EU')" type="button">
+                EU Directive 2000/29/EC
+              </button>
+<button class="preset-pill px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant text-[12px] font-medium hover:bg-primary-container hover:text-on-primary transition-colors" onclick="applyPreset('USDA')" type="button">
+                USDA-APHIS Grade A
+              </button>
+<button class="preset-pill px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant text-[12px] font-medium hover:bg-primary-container hover:text-on-primary transition-colors" onclick="applyPreset('MAFF')" type="button">
+                Japan MAFF Ornamental
+              </button>
+</div>
+</div>
+<!-- Active Requirements List -->
+<div class="flex flex-col gap-2" id="requirements-list">
+<!-- Requirement 1 -->
+<div class="requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-semibold truncate">1. Leaf Length</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium">Geometric</span>
+</div>
+<div class="text-[13px] text-on-surface-variant">
+                  Target: <span class="font-semibold text-on-surface">6.0 – 10.0 cm</span> <span class="text-outline">•</span> Tolerance: ±0.5 cm
+                </div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-outline hover:text-error transition-colors" onclick="deleteRequirement(this)" title="Remove criteria" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Requirement 2 -->
+<div class="requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-semibold truncate">2. Minimum Stems</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium">Structural</span>
+</div>
+<div class="text-[13px] text-on-surface-variant">
+                  Target: <span class="font-semibold text-on-surface">≥ 3 Stems per pot</span> <span class="text-outline">•</span> Strict Minimum
+                </div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-outline hover:text-error transition-colors" onclick="deleteRequirement(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Requirement 3 -->
+<div class="requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-semibold truncate">3. Yellow Leaves</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container text-[11px] font-medium">Discoloration</span>
+</div>
+<div class="text-[13px] text-on-surface-variant">
+                  Target: <span class="font-semibold text-on-surface">0 Count (Not Allowed)</span> <span class="text-outline">•</span> Zero Chlorosis
+                </div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-outline hover:text-error transition-colors" onclick="deleteRequirement(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Requirement 4 -->
+<div class="requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-semibold truncate">4. Visible Damage</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium">Integrity</span>
+</div>
+<div class="text-[13px] text-on-surface-variant">
+                  Target: <span class="font-semibold text-on-surface">0 Lesions / No Tears</span> <span class="text-outline">•</span> Threshold: 0
+                </div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-outline hover:text-error transition-colors" onclick="deleteRequirement(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Requirement 5 -->
+<div class="requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-semibold truncate">5. Plant Height</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium">Dimensional</span>
+</div>
+<div class="text-[13px] text-on-surface-variant">
+                  Target: <span class="font-semibold text-on-surface">15.0 – 25.0 cm</span> <span class="text-outline">•</span> Soil line to apex
+                </div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-outline hover:text-error transition-colors" onclick="deleteRequirement(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Requirement 6 -->
+<div class="requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-semibold truncate">6. Internodal Spacing</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium">Density</span>
+</div>
+<div class="text-[13px] text-on-surface-variant">
+                  Target: <span class="font-semibold text-on-surface">≤ 2.5 cm</span> <span class="text-outline">•</span> Compact nodal habit
+                </div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-outline hover:text-error transition-colors" onclick="deleteRequirement(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quality Calibration Notice -->
+<div class="p-3 rounded-lg bg-surface-container text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<span class="text-[13px]">6 validation criteria bound to Buyer Contract #FC-2024-NL-04.</span>
+</div>
+</div>
+</section>
+<!-- ================= RIGHT COLUMN: PLANT BATCH ASSESSMENT (7 Cols) ================= -->
+<section class="lg:col-span-7 flex flex-col gap-4">
+<!-- Inspection Bay Header -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-surface-variant/40 shadow-sm flex flex-col gap-4">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+<h2 class="font-headline-sm text-[18px] text-on-surface font-bold">Photometric Rig Intake</h2>
+</div>
+<p class="text-[13px] text-on-surface-variant">Station Bay #4 • Multi-angle calibrated sensor feed</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2.5 py-1 rounded bg-surface-container font-label-mono text-[12px] text-on-surface font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mr-1.5"></span>
+                Optical Resolution: 48.2 MP
+              </span>
+</div>
+</div>
+<!-- Drag and Drop Area -->
+<div class="relative rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/30 flex flex-col shadow-xs" id="dropzone"><div class="relative w-full h-64 sm:h-72 overflow-hidden group"><img alt="Calibrated commercial botanical inspection tray with 20 healthy green plants in black netpots arranged in a 4x5 grid on laboratory surface" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi1w-pCcrtBNEqtDDq1DrdVlpSSuMzj5-Egjatcj-yrNdHCaVBuh_OIgLMlKTUiqIBMBIMAfIcajlt99XIt0zRtf_ZdTndL-XDb71RSfQ1OkkGGd8AIwob7Vyg8X6oWcqTHMOyXh10mNZ0IKXvxI07y7W-x50kfFgMh092wHwLevVLKUEjp9fVU08I9v3xcVnY-pxgAx-TF4KcHq1nz2-9dM3AxFSLSMxLBDSB9HSIQrDQs2QYbZ-x"><div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-semibold text-[13px] shadow-md hover:bg-surface-container transition-colors flex items-center gap-1.5" type="button"><span class="material-symbols-outlined text-[18px]">cloud_upload</span> Replace Batch Image</button></div><div class="absolute top-2 left-2 flex flex-wrap items-center gap-1.5"><span class="px-2.5 py-1 rounded bg-primary-container text-on-primary text-[11px] font-semibold flex items-center gap-1 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span> Active Batch Intake: Tray #01 (20 Specimen Netpots Detected)</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface font-label-mono text-[11px] shadow-sm">CALIBRATED-BATCH-20POTS-ORTHO.RAW (42.4 MB)</span></div><div class="absolute bottom-2 right-2"><button class="px-2.5 py-1 rounded bg-surface-container-lowest/90 text-on-surface hover:bg-surface-container-lowest text-[12px] font-semibold shadow-sm flex items-center gap-1 transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-primary">refresh</span> Replace Batch Image</button></div></div><div class="p-3 bg-surface-container-low flex flex-wrap items-center justify-between gap-2 border-t border-outline-variant/30"><div class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">grid_view</span><span class="text-[13px] font-semibold">Specimen Plant Grid: 20 Netpots (4x5) | Multi-stem Nursery Cuttings (3-4 stems/pot)</span></div><div class="flex items-center gap-1.5 text-secondary text-[12px]"><span class="material-symbols-outlined text-[16px]">check_circle</span> Auto-calibrated white reference disc detected</div></div></div>
+<!-- Thumbnail Strip of Sample Specimens with Bounding Markers -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Live Inspected Samples (Pot #01 - Pot #04)</span>
+<span class="text-[12px] text-on-surface-variant">Click frame to inspect visual overlay</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<!-- Specimen 1 -->
+<div class="specimen-card cursor-pointer group relative rounded-lg overflow-hidden bg-surface-container-low transition-all border border-surface-variant/30" onclick="selectSpecimen(1)">
+<div class="h-28 w-full relative">
+<img class="w-full h-full object-cover" data-alt="High precision botanical studio photograph of a young Ficus Lyrata Bambino plant in a standard nursery export pot, clean laboratory background, perfect deep green foliage, sharp morphological details under calibrated high-CRI 5000K lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCddpKw0ZPaRWiB2_8Mb5BZQF-960rTby40QA-m8WxrpJKJxZzd1ynOc2FKcfOJ-yS66mR-WOG2Zqnb4RXh5HK82CDNG5r7n9oBUNqVo5vYu-h0dnCkQ3-5CqUo87jOFn4BbTGAElvb_X-QPUIb_uOyAKBWV9CBIadM8sH1kyq2flQcbBp1cxqhAU1EhkE2BmV2OmnoFwAUgbrAatwmL56uSQu6T81C7T-JhVUynhWB1U95OQzFSmTK">
+<!-- AI Bounding Box Overlay -->
+<div class="absolute inset-2 pointer-events-none rounded bg-primary/10"></div>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-primary-container text-on-primary text-[10px] font-semibold">POT #01</span>
+<span class="absolute bottom-1.5 right-1.5 px-1 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-mono text-[10px]">H: 21.2cm</span>
+</div>
+<div class="p-1.5 bg-surface-container-lowest text-center">
+<span class="text-[11px] text-primary font-semibold">Ready for Eval</span>
+</div>
+</div>
+<!-- Specimen 2 -->
+<div class="specimen-card cursor-pointer group relative rounded-lg overflow-hidden bg-surface-container-low transition-all border border-surface-variant/30" onclick="selectSpecimen(2)">
+<div class="h-28 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Clear high resolution top-down orthographic view of Ficus Lyrata Bambino foliage canopy, showing four distinct stems and broad violin-shaped leaves with prominent venation, laboratory horticultural setting with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTcutddH6fCUyXqWW2rgUOxPrDOUDkmHO7yYlHucsXlthRCoWklMNHxhcgjdTD7NiIulnjlx8MUJLh5AhqMnrbAs_ThTavQvU5mg9ltYT-E027BkXNg73B_fkas8kpAUK9wL6NYBmGl315lWkTjIzjApABB1VuUIO6ski5PeaFtrw8SzV3y8uji2EOyyATUOZ_4PcWgQd8vDY4FbztWAxfqXVEw12TnfNbcvJ8M-ZzqJqx0NLbLsIg">
+<div class="absolute inset-2 pointer-events-none rounded bg-primary/10"></div>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-primary-container text-on-primary text-[10px] font-semibold">POT #02</span>
+<span class="absolute bottom-1.5 right-1.5 px-1 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-mono text-[10px]">H: 22.0cm</span>
+</div>
+<div class="p-1.5 bg-surface-container-lowest text-center">
+<span class="text-[11px] text-primary font-semibold">Ready for Eval</span>
+</div>
+</div>
+<!-- Specimen 3 -->
+<div class="specimen-card cursor-pointer group relative rounded-lg overflow-hidden bg-surface-container-low transition-all border border-surface-variant/30" onclick="selectSpecimen(3)">
+<div class="h-28 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Close-up macro shot of Ficus Lyrata Bambino stems and nodes emerging from sterilized peat moss substrate in a commercial greenhouse export facility, pristine condition with crisp focus and soft green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSIxH4y52XJ7EcZ0mZUsFIZ8GOQc7AsV4Sned_YZIajW9jcIBjOXjDW8y49VlQ_VzWAQcsprMB0XpC34uBc9MNeQmHrt_UT8ay2pEph9iLn-XlrDXKorKNEpuQgFs80erIesTkkF8Fo8ARL3n3SMjLkIzf4bxWD1Akldjtx_S76RiaIQWLL4Dh8z5fnUlz1URK1DXdE1CMtFb10wbUxHcpxcLir3oXo-z9ETxq4uY-UKm5I-PBqm5">
+<div class="absolute inset-2 pointer-events-none rounded bg-primary/10"></div>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-primary-container text-on-primary text-[10px] font-semibold">POT #03</span>
+<span class="absolute bottom-1.5 right-1.5 px-1 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-mono text-[10px]">H: 20.8cm</span>
+</div>
+<div class="p-1.5 bg-surface-container-lowest text-center">
+<span class="text-[11px] text-primary font-semibold">Ready for Eval</span>
+</div>
+</div>
+<!-- Specimen 4 (Flagged sample) -->
+<div class="specimen-card cursor-pointer group relative rounded-lg overflow-hidden bg-surface-container-low transition-all border border-tertiary-fixed-dim" onclick="selectSpecimen(4)">
+<div class="h-28 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Detailed botanical macro photograph of a Ficus leaf showing a subtle 1mm mechanical edge tear on the outer margin, crisp scientific detail against a neutral grey inspection background with soft diffuse light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5flHF2LvHqi-7BQuWZh13hv5Of1LvuxAc3fE8fexPMZBuX0rptOdDPAVi1-z4TSl81yR1V_4tvMnhJwgodbBnElH9inKPjN1DNb4egAGt7Clb3g81tLtdHDbZnltug63r4HS8VuJTUCpJ6dw8nMb_WyTC1Ln8XZS8zf-yA8TymMeC0nD5NzxuxNYcAUwoGG5XtqzHlD_3xPWwWUxaHL8Pekl3Hp8BWRvJW_s7CztoHxbLDDc4QLKU">
+<!-- Amber Warning Box -->
+<div class="absolute top-4 right-4 w-12 h-12 rounded pointer-events-none bg-tertiary-fixed/40"></div>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container text-[10px] font-semibold">POT #04</span>
+<span class="absolute bottom-1.5 right-1.5 px-1 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-[10px] font-bold">1 Alert</span>
+</div>
+<div class="p-1.5 bg-surface-container-lowest text-center">
+<span class="text-[11px] text-tertiary font-semibold">Flagged Specimen</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Evaluation Action Trigger -->
+<div class="pt-1 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant text-[13px]">
+<span class="material-symbols-outlined text-[18px] text-secondary">memory</span>
+<span class="">Inference Engine: AgroVision-Edge v4.2 • Active Model: FICUS-EXP-STD</span>
+</div>
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-semibold text-[14px] flex items-center justify-center gap-2 shadow-md hover:opacity-95 active:scale-[0.99] transition-all" id="detect-btn" onclick="runAiEvaluation()" type="button">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="">Detect &amp; Evaluate Batch (AI Engine)</span>
+</button>
+</div>
+<!-- Progress Simulation Bar (Hidden by default) -->
+<div class="hidden flex-col gap-3 p-4 bg-surface-container-low rounded-lg transition-all border border-surface-variant/40" id="ai-progress-panel">
+<div class="flex items-center justify-between text-[13px]">
+<span class="text-primary font-semibold flex items-center gap-1.5" id="ai-progress-stage">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-ping"></span>
+                Phase 1: Morphometric leaf segmentation...
+              </span>
+<span class="font-label-mono text-on-surface font-semibold" id="ai-progress-percent">24%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container transition-all duration-300 w-1/4" id="ai-progress-bar"></div>
+</div>
+<div class="grid grid-cols-4 gap-2 text-[11px] text-on-surface-variant font-medium">
+<div class="font-semibold text-primary" id="step-1">1. Segmentation</div>
+<div class="opacity-40" id="step-2">2. Apex &amp; Stems</div>
+<div class="opacity-40" id="step-3">3. Chlorosis Scan</div>
+<div class="opacity-40" id="step-4">4. Rule Match</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ================= AI DETECTION & SPECIFICATION MATCHING RESULTS ================= -->
+<section class="w-full flex flex-col gap-5 transition-all duration-500" id="results-section">
+<!-- Section Title & Overview Metrics -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+<div>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+<h2 class="font-headline-lg text-[22px] md:text-[24px] text-on-surface font-bold">AI Detection &amp; Specification Matching Results</h2>
+</div>
+<p class="text-[14px] text-on-surface-variant mt-0.5">Direct algorithmic evaluation of 20 sample units against 6 strict export quality parameters.</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low p-1.5 rounded-lg border border-surface-variant/30">
+<span class="text-[12px] text-on-surface-variant px-2">Confidence Threshold: 85.0%</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary font-label-mono text-[12px] font-bold shadow-xs">Autonomous Mode</span>
+</div>
+</div>
+<!-- Metric Ribbon (4 KPI units) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant/40 shadow-sm flex items-center justify-between">
+<div class="flex flex-col"><span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Total Plants Inspected</span><div class="flex items-baseline gap-2 mt-1"><span class="text-3xl text-primary font-bold tracking-tight">20</span><span class="text-[13px] text-on-surface-variant">Plants</span></div></div>
+<div class="flex flex-col items-end"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-mono text-[12px] font-bold">Tray #01</span><span class="text-[11px] text-on-surface-variant mt-1">15–20 Target Sample</span></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant/40 shadow-sm flex items-center justify-between">
+<div class="flex flex-col"><span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Passed Specimens</span><div class="flex items-baseline gap-2 mt-1"><span class="text-3xl text-primary font-bold tracking-tight">16</span><span class="text-[13px] text-on-surface-variant">/ 20 Plants</span></div></div>
+<div class="flex flex-col items-end"><span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-mono text-[12px] font-bold">80.0%</span><span class="text-[11px] text-secondary font-semibold mt-1">Full Clearance</span></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant/40 shadow-sm flex items-center justify-between">
+<div class="flex flex-col"><span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Manual Review</span><div class="flex items-baseline gap-2 mt-1"><span class="text-3xl text-tertiary-container font-bold tracking-tight">3</span><span class="text-[13px] text-on-surface-variant">/ 20 Plants</span></div></div>
+<div class="flex flex-col items-end"><span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-[12px] font-bold">15.0%</span><span class="text-[11px] text-tertiary font-semibold mt-1">Pot #04, #11, #19</span></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant/40 shadow-sm flex items-center justify-between">
+<div class="flex flex-col"><span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Rejected / Failed</span><div class="flex items-baseline gap-2 mt-1"><span class="text-3xl text-error font-bold tracking-tight">1</span><span class="text-[13px] text-on-surface-variant">/ 20 Plants</span></div></div>
+<div class="flex flex-col items-end"><span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-mono text-[12px] font-bold">5.0%</span><span class="text-[11px] text-error font-semibold mt-1">Pot #14 Substandard</span></div>
+</div>
+</div>
+</div>
+<!-- Main Results Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-variant/40 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-[11px] uppercase tracking-wider border-b border-surface-variant/40">
+<th class="py-3 px-4 font-semibold">Botanical Characteristic</th>
+<th class="py-3 px-4 font-semibold">Detected Value</th>
+<th class="py-3 px-4 font-semibold">Buyer Specification</th>
+<th class="py-3 px-4 font-semibold text-center">Result Status</th>
+<th class="py-3 px-4 font-semibold text-right">Confidence</th>
+<th class="py-3 px-4 font-semibold text-right">Diagnostic Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-[14px] text-on-surface"><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-3 px-4 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Leaf Length (16 / 20 Cleared)</td><td class="py-3 px-4 font-label-mono">8.2 cm avg <span class="text-on-surface-variant text-[12px]">(7.1 – 9.4 cm across 20 pots)</span></td><td class="py-3 px-4 font-label-mono text-on-surface-variant">6.0 – 10.0 cm (±0.5cm)</td><td class="py-3 px-4 text-center"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container text-[11px] font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> PASS (16 Plants)</span></td><td class="py-3 px-4 text-right font-label-mono font-semibold text-primary">94.2%</td><td class="py-3 px-4 text-right"><button class="text-primary hover:underline text-[12px] font-semibold" onclick="showDiagnosticModal('Leaf Length', '16 of 20 pots strictly comply with 6.0 - 10.0 cm leaf chord target. Pots #04, #11, and #19 require manual validation. Specimen #14 failed minimum stems.')" type="button">Inspect Details</button></td></tr><tr class="bg-error-container/20 hover:bg-error-container/30 transition-colors"><td class="py-3 px-4 font-semibold flex items-center gap-2 text-error"><span class="w-2 h-2 rounded-full bg-error"></span> Minimum Stems (Pot #14 Violation)</td><td class="py-3 px-4 font-label-mono text-error">Pot #14: 2 Stems Detected <span class="text-[12px] font-normal">(Batch avg: 3.8 stems)</span></td><td class="py-3 px-4 font-label-mono text-on-surface-variant">Min 3 Stems per pot (Strict)</td><td class="py-3 px-4 text-center"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-error text-on-error text-[11px] font-bold shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span> REJECT (1 Plant)</span></td><td class="py-3 px-4 text-right font-label-mono font-semibold text-error">98.4%</td><td class="py-3 px-4 text-right"><button class="px-2.5 py-1 rounded bg-error text-on-error text-[11px] font-semibold hover:opacity-90 shadow-sm" onclick="showDiagnosticModal('Pot #14 Rejection', 'Pot #14 in grid row 3 column 4 segmented with only 2 functional vegetative stems. Violates strict EU Buyer Requirement #2 (≥3 stems per pot). Unit disqualified from consignment.')" type="button">View Disqualification</button></td></tr><tr class="bg-tertiary-fixed-dim/20 hover:bg-tertiary-fixed-dim/30 transition-colors"><td class="py-3 px-4 font-semibold flex items-center gap-2 text-on-tertiary-fixed-variant"><span class="w-2 h-2 rounded-full bg-tertiary-container animate-ping"></span> Visible Damage (Pot #04 Flag)</td><td class="py-3 px-4 font-label-mono text-on-tertiary-fixed-variant">Pot #04: 1.2mm margin tear <span class="text-[12px] font-normal">(Pots #11 &amp; #19 flagged for density)</span></td><td class="py-3 px-4 font-label-mono text-on-tertiary-fixed-variant">Not Allowed (Threshold: 0)</td><td class="py-3 px-4 text-center"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed text-[11px] font-bold shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span> MANUAL REVIEW (3 Plants)</span></td><td class="py-3 px-4 text-right font-label-mono font-semibold text-tertiary-container">71.3%</td><td class="py-3 px-4 text-right"><button class="px-2.5 py-1 rounded bg-tertiary-container text-on-tertiary text-[11px] font-semibold hover:opacity-90 shadow-sm" onclick="openCropViewer()" type="button">View Crop Alert</button></td></tr><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-3 px-4 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Yellow Leaves / Chlorosis Scan</td><td class="py-3 px-4 font-label-mono">0 Chlorotic Laminae <span class="text-on-surface-variant text-[12px]">(20/20 Pots Clear)</span></td><td class="py-3 px-4 font-label-mono text-on-surface-variant">Not Allowed (0 Count)</td><td class="py-3 px-4 text-center"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container text-[11px] font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> PASS (16 Plants)</span></td><td class="py-3 px-4 text-right font-label-mono font-semibold text-primary">97.8%</td><td class="py-3 px-4 text-right"><button class="text-primary hover:underline text-[12px] font-semibold" onclick="showDiagnosticModal('Yellow Leaves', 'Chlorophyll reflectivity index uniform across all 20 netpot specimens in Tray #01. Zero chlorosis detected.')" type="button">Inspect Details</button></td></tr><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-3 px-4 font-semibold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Plant Height Distribution</td><td class="py-3 px-4 font-label-mono">21.4 cm avg <span class="text-on-surface-variant text-[12px]">(Min: 20.8, Max: 22.4 cm)</span></td><td class="py-3 px-4 font-label-mono text-on-surface-variant">15.0 – 25.0 cm (Apex to soil line)</td><td class="py-3 px-4 text-center"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container text-[11px] font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> PASS (16 Plants)</span></td><td class="py-3 px-4 text-right font-label-mono font-semibold text-primary">94.6%</td><td class="py-3 px-4 text-right"><button class="text-primary hover:underline text-[12px] font-semibold" onclick="showDiagnosticModal('Plant Height', 'Vertical LiDAR scan over 20 netpots confirmed height conformance. 19 units within nominal range, 1 unit (Pot #14) deficient in stems despite height.')" type="button">Inspect Details</button></td></tr></tbody>
+</table>
+</div>
+</div>
+<!-- ================= BOTTOM DECISION CARD & ESCALATION BAR ================= -->
+<div class="rounded-xl px-5 py-3.5 md:px-6 md:py-4 bg-surface-container-lowest border border-surface-variant/40 shadow-sm transition-all" id="decision-card"><div class="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-4"><div class="flex items-start sm:items-center gap-3.5 max-w-3xl"><div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary-container shrink-0 shadow-xs" id="decision-icon-box"><span class="material-symbols-outlined text-[24px]" id="decision-icon">warning</span></div><div class="flex flex-col gap-1"><div class="flex flex-wrap items-center gap-2"><span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-mono text-[10px] font-bold tracking-wider uppercase" id="decision-badge">MANUAL REVIEW REQUIRED</span><span class="text-outline text-[11px]">•</span><span class="text-on-surface-variant text-[12px] font-medium">Specimen Flag in Pot #04</span></div><h3 class="font-headline-sm text-[15px] md:text-[16px] text-on-surface font-bold tracking-tight leading-snug" id="decision-heading">Human Verification Mandated for Quarantine Clearance</h3><p class="text-[12px] text-on-surface-variant leading-normal" id="decision-description">Characteristic <strong class="font-semibold text-on-surface">‘Visible Damage’</strong> triggered a potential mechanical micro-tear (1.2mm) on Specimen #04 with 71.3% confidence (autonomous threshold: 85.0%). Agronomist sign-off required.</p></div></div><div class="flex flex-wrap items-center gap-2 shrink-0 w-full xl:w-auto justify-start xl:justify-end pt-1 xl:pt-0" id="decision-actions"><button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-semibold text-[12px] transition-colors flex items-center gap-1.5 shadow-xs" onclick="rerunSampleFour()" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">refresh</span><span class="">Re-evaluate #04</span></button><button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-semibold text-[12px] transition-colors flex items-center gap-1.5 shadow-xs" onclick="openManualReviewModal()" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">badge</span><span class="">Senior Officer Review</span></button><button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-semibold text-[12px] hover:opacity-95 shadow-sm transition-all flex items-center gap-1.5" onclick="overrideAndIssuePass()" type="button"><span class="material-symbols-outlined text-[16px]">verified</span><span class="">Override PASS &amp; Issue Certificate</span></button></div></div></div>
+</section>
+</div>
+<!-- ================= MODAL: ADD REQUIREMENT ================= -->
+<div class="fixed inset-0 z-50 hidden bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="add-requirement-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-6 shadow-xl flex flex-col gap-4 border border-surface-variant/40">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[24px]">playlist_add</span>
+<h3 class="font-headline-sm text-lg text-on-surface font-bold">Add Buyer Quality Specification</h3>
+</div>
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="closeAddRequirementModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-3" id="new-requirement-form" onsubmit="handleSaveRequirement(event)">
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="req-name">Characteristic Name</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="req-name" placeholder="e.g. Stem Caliper Diameter" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="req-category">Category Tag</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="req-category">
+<option value="Dimensional">Dimensional</option>
+<option value="Structural">Structural</option>
+<option value="Geometric">Geometric</option>
+<option value="Visual Discoloration">Visual Discoloration</option>
+<option value="Integrity">Integrity</option>
+<option value="Density">Density</option>
+</select>
+</div>
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="req-unit">Unit of Measure</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="req-unit" placeholder="cm / mm / count / %" type="text">
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="req-target">Target Spec / Range</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="req-target" placeholder="e.g. 1.2 - 2.0 cm" required="" type="text">
+</div>
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="req-tolerance">Tolerance Margin</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="req-tolerance" placeholder="e.g. ±0.2cm or Strict" type="text">
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface font-semibold text-[13px] hover:bg-surface-container-high transition-colors" onclick="closeAddRequirementModal()" type="button">
+            Cancel
+          </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-semibold text-[13px] hover:opacity-95 shadow-sm transition-all" type="submit">
+            Save Requirement
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- ================= MODAL: CROP VIEWER (SPECIMEN #04) ================= -->
+<div class="fixed inset-0 z-50 hidden bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="crop-viewer-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-2xl w-full p-6 shadow-xl flex flex-col gap-4 border border-surface-variant/40">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-tertiary-container">
+<span class="material-symbols-outlined text-[24px]">crop_free</span>
+<h3 class="font-headline-sm text-lg text-on-surface font-bold">Pot #04 Micro-Defect Localization</h3>
+</div>
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="closeCropViewer()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="relative rounded-xl overflow-hidden bg-surface-container-high h-72 w-full flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Extreme macro botanical sensor capture of a Ficus leaf edge showing tiny 1.2mm mechanical abrasion under inspection lighting, yellow bounding box highlighting the margin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZKjZphKzITM0QPOYXSqMpcpLpLFRh0xB8fM3k2QpARecsnKHTYjQWEK5W3GD_2rzxqWdpKdwCJ_6tGoYv1JGPyNRNa7Yl1tVCmaIX53Wa8MW9bhvOFC_xg86kYP4JHtnMUVDABfqIT_oqjr6yejpd7NjBKWpPsaDXCKYd7sLp8261JzpYHl5CpxLktBcEbAUsd-x491cieoDVRSrmO2OwUFWiD2WRnt5071OWWDhWhsAWk7DjXQ79">
+<!-- Overlay Annotation -->
+<div class="absolute inset-x-6 bottom-4 p-3 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md shadow-md flex items-center justify-between text-[13px]">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span>
+<span class="font-semibold text-on-surface">Sub-Margin Scuff (1.2mm × 0.4mm)</span>
+</div>
+<span class="font-label-mono font-bold text-tertiary-container">Confidence: 71.3%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[13px] text-on-surface-variant">Note: No active pathogen, fungal mycelium, or pest vector detected.</span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-semibold text-[13px] hover:opacity-95 transition-all" onclick="markDamageMinor()" type="button">
+            Accept as Negligible (PASS)
+          </button>
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface font-semibold text-[13px] hover:bg-surface-container-high transition-colors" onclick="closeCropViewer()" type="button">
+            Keep Flag
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= MODAL: DIAGNOSTIC DETAILS ================= -->
+<div class="fixed inset-0 z-50 hidden bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="diagnostic-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-6 shadow-xl flex flex-col gap-4 border border-surface-variant/40">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[24px]">troubleshoot</span>
+<h3 class="font-headline-sm text-lg text-on-surface font-bold" id="diag-title">Diagnostic Telemetry</h3>
+</div>
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="closeDiagnosticModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="text-[14px] text-on-surface-variant leading-relaxed" id="diag-body"></p>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between text-[13px]">
+<span class="text-on-surface-variant">Sensor: Rig Bay #4 3D Orthogonal</span>
+<span class="font-label-mono text-primary font-semibold">ISO 17025 Calibrated</span>
+</div>
+<div class="flex justify-end">
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface font-semibold text-[13px] hover:bg-surface-container-high transition-colors" onclick="closeDiagnosticModal()" type="button">
+          Dismiss
+        </button>
+</div>
+</div>
+</div>
+<!-- ================= MODAL: SENIOR OFFICER ESCALATION ================= -->
+<div class="fixed inset-0 z-50 hidden bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="senior-review-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-xl flex flex-col gap-4 border border-surface-variant/40">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-[24px]">assignment_ind</span>
+<h3 class="font-headline-sm text-lg text-on-surface font-bold">Route to Senior Agronomist</h3>
+</div>
+<p class="text-[13px] text-on-surface-variant">Dispatch Lot #EXP-2024-8849 telemetry with Specimen #04 image telemetry to the Chief Phytosanitary Officer on duty.</p>
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="review-priority">Queue Priority</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="review-priority">
+<option value="Urgent Pre-Vessel Loading">Urgent • Pre-Vessel Loading (Departs in 3h)</option>
+<option value="Standard Inspection Protocol">Standard Inspection Protocol</option>
+</select>
+</div>
+<div>
+<label class="block text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1" for="review-notes">Inspector Notes</label>
+<textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] border border-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary" id="review-notes" placeholder="Add manual observation on Pot #04 scuff..." rows="3"></textarea>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface font-semibold text-[13px] hover:bg-surface-container-high transition-colors" onclick="closeManualReviewModal()" type="button">
+          Cancel
+        </button>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-semibold text-[13px] hover:opacity-95 shadow-sm transition-all" onclick="dispatchManualReview()" type="button">
+          Dispatch Ticket
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Vanilla JS For Micro-interactions -->
+<script>
+  // Simple Toast Helper
+  function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    const bgClass = type === 'success' ? 'bg-primary-container text-on-primary' : (type === 'warning' ? 'bg-tertiary-container text-on-tertiary-container' : 'bg-surface-container-highest text-on-surface');
+    toast.className = `px-4 py-2.5 rounded-xl shadow-lg pointer-events-auto flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 ${bgClass}`;
+    toast.innerHTML = `
+      <span class="material-symbols-outlined text-[18px]">${type === 'success' ? 'check_circle' : 'info'}</span>
+      <span class="font-medium text-[13px]">${message}</span>
+    `;
+    container.appendChild(toast);
+    requestAnimationFrame(() => {
+      toast.classList.remove('translate-y-2', 'opacity-0');
+    });
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => toast.remove(), 300);
+    }, 3800);
+  }
+
+  // Specimen selection micro-interaction
+  function selectSpecimen(id) {
+    showToast(`Inspecting Pot #0${id} visual telemetry frame.`, 'info');
+  }
+
+  // Preset Application
+  function applyPreset(presetName) {
+    const pills = document.querySelectorAll('.preset-pill');
+    pills.forEach(p => {
+      p.classList.remove('bg-primary-container', 'text-on-primary');
+      p.classList.add('bg-surface-container', 'text-on-surface-variant');
+    });
+    event.currentTarget.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    event.currentTarget.classList.add('bg-primary-container', 'text-on-primary');
+
+    if (presetName === 'EU') {
+      showToast('Profile applied: EU Directive 2000/29/EC (6 rules active)', 'success');
+    } else if (presetName === 'USDA') {
+      showToast('Profile applied: USDA-APHIS Nursery Stock Grade A', 'info');
+    } else {
+      showToast('Profile applied: Japan MAFF Ornamental Flora Spec', 'info');
+    }
+  }
+
+  // Modal Handlers: Add Requirement
+  const addReqModal = document.getElementById('add-requirement-modal');
+  const openReqBtn = document.getElementById('open-add-req-modal');
+  if (openReqBtn) {
+    openReqBtn.addEventListener('click', () => {
+      addReqModal.classList.remove('hidden');
+    });
+  }
+  function closeAddRequirementModal() {
+    addReqModal.classList.add('hidden');
+  }
+
+  function deleteRequirement(btn) {
+    const card = btn.closest('.requirement-card');
+    if (card) {
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        card.remove();
+        showToast('Buyer requirement rule removed from active batch checklist.', 'info');
+      }, 200);
+    }
+  }
+
+  function handleSaveRequirement(e) {
+    e.preventDefault();
+    const name = document.getElementById('req-name').value;
+    const cat = document.getElementById('req-category').value;
+    const target = document.getElementById('req-target').value;
+    const tol = document.getElementById('req-tolerance').value || 'Strict';
+    const list = document.getElementById('requirements-list');
+
+    const newCard = document.createElement('div');
+    newCard.className = 'requirement-card p-3 rounded-lg bg-surface-container-low flex items-start justify-between gap-3 transition-all hover:bg-surface-container border border-surface-variant/30';
+    newCard.innerHTML = `
+      <div class="flex flex-col gap-0.5 min-w-0">
+        <div class="flex items-center gap-2">
+          <span class="text-[14px] text-on-surface font-semibold truncate">${name}</span>
+          <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium">${cat}</span>
+        </div>
+        <div class="text-[13px] text-on-surface-variant">
+          Target: <span class="font-semibold text-on-surface">${target}</span> <span class="text-outline">&bull;</span> ${tol}
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button type="button" onclick="deleteRequirement(this)" class="p-1 text-outline hover:text-error transition-colors">
+          <span class="material-symbols-outlined text-[18px]">delete</span>
+        </button>
+      </div>
+    `;
+
+    list.appendChild(newCard);
+    closeAddRequirementModal();
+    document.getElementById('new-requirement-form').reset();
+    showToast(`Added '${name}' to buyer quality validation rules.`, 'success');
+  }
+
+  // Diagnostic Detail Modal
+  const diagModal = document.getElementById('diagnostic-modal');
+  function showDiagnosticModal(title, text) {
+    document.getElementById('diag-title').textContent = title + ' Diagnostics';
+    document.getElementById('diag-body').textContent = text;
+    diagModal.classList.remove('hidden');
+  }
+  function closeDiagnosticModal() {
+    diagModal.classList.add('hidden');
+  }
+
+  // Crop Viewer Modal
+  const cropModal = document.getElementById('crop-viewer-modal');
+  function openCropViewer() {
+    cropModal.classList.remove('hidden');
+  }
+  function closeCropViewer() {
+    cropModal.classList.add('hidden');
+  }
+
+  // Senior Officer Modal
+  const seniorModal = document.getElementById('senior-review-modal');
+  function openManualReviewModal() {
+    seniorModal.classList.remove('hidden');
+  }
+  function closeManualReviewModal() {
+    seniorModal.classList.add('hidden');
+  }
+  function dispatchManualReview() {
+    closeManualReviewModal();
+    showToast('Lot #EXP-2024-8849 routed to Lead Agronomist queue for verification.', 'success');
+  }
+
+  // Accept negligible scuff
+  function markDamageMinor() {
+    closeCropViewer();
+    showToast('Specimen #04 scuff logged as non-pathogenic mechanical mark. Override staged.', 'info');
+  }
+
+  // AI Evaluation Simulation
+  function runAiEvaluation() {
+    const progressPanel = document.getElementById('ai-progress-panel');
+    const progressBar = document.getElementById('ai-progress-bar');
+    const progressStage = document.getElementById('ai-progress-stage');
+    const progressPercent = document.getElementById('ai-progress-percent');
+    const detectBtn = document.getElementById('detect-btn');
+
+    progressPanel.classList.remove('hidden');
+    progressPanel.classList.add('flex');
+    detectBtn.disabled = true;
+    detectBtn.classList.add('opacity-50', 'pointer-events-none');
+
+    let step = 1;
+    const stages = [
+      { text: "1. Morphometric leaf segmentation...", pct: "25%", id: "step-1" },
+      { text: "2. Stem counting & apex tracking...", pct: "50%", id: "step-2" },
+      { text: "3. Spectral chlorophyll/chlorosis scan...", pct: "75%", id: "step-3" },
+      { text: "4. Matching specifications against 6 rules...", pct: "100%", id: "step-4" }
+    ];
+
+    let interval = setInterval(() => {
+      if (step < stages.length) {
+        progressStage.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-primary animate-ping"></span> ${stages[step].text}`;
+        progressBar.style.width = stages[step].pct;
+        progressPercent.textContent = stages[step].pct;
+        document.getElementById(stages[step].id).classList.remove('opacity-40');
+        document.getElementById(stages[step].id).classList.add('font-semibold', 'text-primary');
+        step++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          progressPanel.classList.add('hidden');
+          progressPanel.classList.remove('flex');
+          detectBtn.disabled = false;
+          detectBtn.classList.remove('opacity-50', 'pointer-events-none');
+          showToast('AI Batch Assessment Complete. 5/6 Rules Met, 1 Manual Flag.', 'success');
+          // Smooth scroll to results
+          document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 500);
+      }
+    }, 650);
+  }
+
+  // Rerun Sample Four
+  function rerunSampleFour() {
+    showToast('Re-scanning Pot #04 under high-magnification multi-spectrum optical rig...', 'info');
+    setTimeout(() => {
+      showToast('Specimen #04 confirmed: isolated mechanical friction mark, 0 pathogen threat.', 'success');
+    }, 1800);
+  }
+
+  // Full Override and PASS
+  function overrideAndIssuePass() {
+    const card = document.getElementById('decision-card');
+    const iconBox = document.getElementById('decision-icon-box');
+    const icon = document.getElementById('decision-icon');
+    const badge = document.getElementById('decision-badge');
+    const heading = document.getElementById('decision-heading');
+    const desc = document.getElementById('decision-description');
+    const actions = document.getElementById('decision-actions');
+
+    // Visual State Transition to Officially Approved
+    iconBox.className = 'w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shrink-0 shadow-md transition-all duration-500';
+    icon.textContent = 'verified';
+    badge.className = 'px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wider';
+    badge.textContent = 'OFFICIAL EXPORT APPROVED';
+    heading.textContent = 'Phytosanitary Clearance Certificate #NL-EXP-8849 ISSUED';
+    desc.innerHTML = 'All 120 specimens in Lot #EXP-2024-8849 cleared for EU Rotterdam Port delivery. Lead Agronomist digital cryptographic stamp attached. Ready for vessel customs dispatch.';
+
+    actions.innerHTML = `
+      <div class="flex items-center gap-2.5">
+        <div class="px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-label-mono text-[13px] font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+          Export Certificate PDF Ready
+        </div>
+        <button type="button" onclick="window.print()" class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-semibold text-[13px] hover:opacity-95 shadow-sm transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">print</span>
+          Print Consignment Seal
+        </button>
+      </div>
+    `;
+
+    showToast('Override Certified: Official pre-shipment clearance issued!', 'success');
+  }
+</script></main>
+<footer class="w-full bg-surface-container-low border-t border-surface-variant/40 shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-auto"><div class="w-full px-6 md:px-8 py-3.5 flex flex-col md:flex-row items-center justify-between gap-2 text-on-surface-variant text-[13px]"><div class="flex items-center gap-4"><span class="">National Plant Protection Organization • Export Certification Protocol v4.8</span><span class="hidden sm:inline-block px-2 py-0.5 rounded bg-surface-container text-[11px] font-semibold text-primary">ISO 17020 ACCREDITED</span></div><div class="flex items-center gap-4"><span class="font-label-mono">Station ID: AG-SFO-09</span><span class="">PhytoAudit Enterprise © 2024</span></div></div></footer>
+</div>
+
+
+
+
+</body></html>

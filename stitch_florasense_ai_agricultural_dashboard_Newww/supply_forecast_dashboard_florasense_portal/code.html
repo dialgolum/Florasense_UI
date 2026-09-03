@@ -1,0 +1,615 @@
+<!DOCTYPE html><html lang="en"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Florasense - Supply Forecast Dashboard</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Hanken Grotesk, JetBrains Mono, Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;900&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-tertiary-fixed": "#2a1700",
+                  "inverse-primary": "#8bd6b6",
+                  "surface": "#f8f9ff",
+                  "on-secondary": "#ffffff",
+                  "tertiary-container": "#764900",
+                  "secondary": "#5a5f64",
+                  "primary": "#004532",
+                  "on-primary-fixed": "#002116",
+                  "secondary-fixed-dim": "#c3c7cd",
+                  "on-primary-container": "#8bd6b7",
+                  "secondary-fixed": "#dfe3e9",
+                  "tertiary-fixed-dim": "#ffb95f",
+                  "surface-container-highest": "#d9e3f6",
+                  "on-primary-fixed-variant": "#00513b",
+                  "surface-container-high": "#dee9fc",
+                  "surface-tint": "#1b6b51",
+                  "secondary-container": "#dfe3e9",
+                  "surface-container-low": "#eff4ff",
+                  "surface-container-lowest": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-container": "#ffb960",
+                  "error-container": "#ffdad6",
+                  "primary-fixed": "#a6f2d1",
+                  "inverse-surface": "#27313f",
+                  "primary-container": "#065f46",
+                  "on-surface": "#121c2a",
+                  "tertiary-fixed": "#ffddb8",
+                  "on-surface-variant": "#3f4944",
+                  "outline": "#6f7973",
+                  "surface-variant": "#d9e3f6",
+                  "inverse-on-surface": "#eaf1ff",
+                  "primary-fixed-dim": "#8bd6b6",
+                  "error": "#ba1a1a",
+                  "on-tertiary-fixed-variant": "#653e00",
+                  "on-secondary-fixed-variant": "#43474c",
+                  "on-background": "#121c2a",
+                  "surface-container": "#e6eeff",
+                  "tertiary": "#563400",
+                  "on-error": "#ffffff",
+                  "on-secondary-fixed": "#171c20",
+                  "surface-dim": "#d0dbed",
+                  "surface-bright": "#f8f9ff",
+                  "on-secondary-container": "#60656a",
+                  "background": "#f8f9ff",
+                  "on-primary": "#ffffff",
+                  "on-tertiary": "#ffffff",
+                  "outline-variant": "#bec9c2"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "lg": "40px",
+                  "margin-mobile": "16px",
+                  "xs": "4px",
+                  "sm": "12px",
+                  "md": "24px",
+                  "gutter": "24px",
+                  "base": "8px",
+                  "xl": "64px",
+                  "margin-desktop": "32px"
+          },
+          "fontFamily": {
+                  "headline-lg": ["Hanken Grotesk"],
+                  "title-md": ["Hanken Grotesk"],
+                  "label-mono": ["JetBrains Mono"],
+                  "headline-lg-mobile": ["Hanken Grotesk"],
+                  "body-md": ["Hanken Grotesk"],
+                  "display-lg": ["Hanken Grotesk"],
+                  "body-sm": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+                  "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                  "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                  "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                  "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                  "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                  "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                  "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen antialiased flex">
+<!-- Fixed Left Vertical Navigation Sidebar -->
+<aside class="fixed inset-y-0 left-0 z-30 w-64 bg-surface-container-low border-r border-outline-variant/30 flex flex-col justify-between py-6 px-4">
+<div class="flex flex-col gap-6">
+<!-- Brand Header -->
+<div class="flex items-start gap-3 px-2">
+<div class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+
+</div>
+<div>
+<h1 class="font-headline-lg text-xl font-bold text-primary leading-tight tracking-tight">Florasense</h1>
+<p class="font-label-mono text-[10px] text-on-surface-variant font-medium uppercase tracking-wider leading-none mt-1">Commercial Nursery Portal</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1.5 mt-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-secondary hover:text-on-surface hover:bg-surface-container-high/60 transition-colors font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="">Plant ID &amp; Chat</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-secondary hover:text-on-surface hover:bg-surface-container-high/60 transition-colors font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+<span class="">Disease Scanner</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-secondary hover:text-on-surface hover:bg-surface-container-high/60 transition-colors font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span class="">Export Quality</span>
+</a>
+<!-- Active Item: Supply Forecast -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-primary text-on-primary font-semibold text-sm shadow-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+<span class="">Supply Forecast</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Section: User Profile & Utility Links -->
+<div class="flex flex-col gap-3 pt-4 border-t border-outline-variant/30">
+<!-- User Profile Details -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-outline-variant/40 shrink-0" data-alt="Professional agronomist profile avatar wearing modern agricultural field gear against a clean sunlit greenhouse background" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCTwP7Cu9csQhERgOmXklXoe_u38NsHb2iPki7E5-xHoRsGEusfK9xoR5h_e_bYJqWqLxS7_R7zs2oWbNgVFoJhzC8HtrFl4v-rw0dwt98wEzhAXSbkJU-mZx74BlFGvJ6TAClzmLSkglAEDYStbY7iIHJH3TA6Wu_4DSGclbUaGSyoWCK6RABsO3mzrerdd79q0vUGrz-epFrEfinAEpulZfZjDij2u1M0yof8s_FQ9GiVbs-RfgrY&quot;);"></div>
+<div class="min-w-0 flex-1">
+<p class="text-xs font-bold text-on-surface truncate">Jane Doe</p>
+<p class="font-label-mono text-[10px] text-secondary truncate">Nursery Manager</p>
+</div>
+</div>
+<!-- Utility Links -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container-high/60 transition-colors font-medium text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span class="">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container-high/60 transition-colors font-medium text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span class="">Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Dashboard Content Area shifted right for sidebar -->
+<div class="flex-1 ml-64 min-h-screen bg-background flex flex-col">
+<div class="flex-1 px-6 lg:px-12 py-6">
+<div class="max-w-[1180px] mx-auto flex flex-col gap-6">
+<!-- Top Dashboard Header with Actions -->
+<div class="flex flex-wrap justify-between items-end gap-3 pb-1 border-b border-outline-variant/20">
+<div class="flex min-w-72 flex-col gap-1">
+<span class="font-label-mono text-label-mono text-primary font-semibold uppercase tracking-wider">Predictive Yield Analytics</span>
+<h1 class="text-on-surface font-headline-lg text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Supply Forecast Dashboard</h1>
+<p class="text-on-surface-variant font-body-md text-sm md:text-base">Real-time yield projections adjusted by agro-climatic sensor inputs and contract milestones</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 bg-surface-container-low border border-outline-variant/40 rounded-lg px-3 py-1.5 shadow-sm">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-xs text-on-surface-variant font-medium">Sensors Active: 99.4% Uptime</span>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-lg h-9 px-3.5 bg-primary hover:bg-primary-container text-on-primary text-xs font-bold leading-normal tracking-[0.015em] shadow-sm transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">Export Report</span>
+</button>
+</div>
+</div>
+<!-- 1. Top Row: Data Integration Status with 5 Indicator Lights -->
+<section class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-4 border-b border-outline-variant/20 pb-3">
+<div class="flex items-center gap-2.5">
+<div class="size-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">sensors</span>
+</div>
+<div>
+<h3 class="text-on-surface text-sm md:text-base font-bold leading-tight tracking-[-0.015em]">Data Integration Pipeline</h3>
+<p class="text-[11px] text-on-surface-variant font-label-mono">Automated sensor ingestion &amp; ERP sync</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs font-label-mono">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-secondary">
+<span class="size-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+              Auto-sync: 5m frequency
+            </span>
+<span class="text-[11px] text-primary font-semibold hidden sm:inline">• Latency: 24ms</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+<!-- Indicator 1 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">cloud_sync</span>
+</div>
+<div>
+<p class="text-[11px] text-secondary font-medium uppercase font-label-mono tracking-wider">Historical Sales</p>
+<p class="text-sm font-bold text-on-surface flex items-center gap-1.5 mt-0.5">
+                  Live Synced
+                  <span class="size-1.5 rounded-full bg-emerald-500"></span>
+</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-600 text-sm opacity-80 group-hover:scale-110 transition-transform">check_circle</span>
+</div>
+<!-- Indicator 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">water_drop</span>
+</div>
+<div>
+<p class="text-[11px] text-secondary font-medium uppercase font-label-mono tracking-wider">Rainfall Radar</p>
+<p class="text-sm font-bold text-on-surface mt-0.5">4.2 mm <span class="text-[10px] text-secondary font-normal font-label-mono">/24h</span></p>
+</div>
+</div>
+<span class="text-[10px] font-label-mono px-1.5 py-0.5 rounded bg-surface-container-low text-primary font-semibold">Optimal</span>
+</div>
+<!-- Indicator 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">humidity_percentage</span>
+</div>
+<div>
+<p class="text-[11px] text-secondary font-medium uppercase font-label-mono tracking-wider">Humidity Bus</p>
+<p class="text-sm font-bold text-on-surface mt-0.5">78% RH <span class="text-[10px] text-secondary font-normal font-label-mono">stable</span></p>
+</div>
+</div>
+<span class="text-[10px] font-label-mono px-1.5 py-0.5 rounded bg-surface-container-low text-primary font-semibold">Nominal</span>
+</div>
+<!-- Indicator 4 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">thermostat</span>
+</div>
+<div>
+<p class="text-[11px] text-secondary font-medium uppercase font-label-mono tracking-wider">Temperature</p>
+<p class="text-sm font-bold text-on-surface mt-0.5">27.4 °C <span class="text-[10px] text-secondary font-normal font-label-mono">avg</span></p>
+</div>
+</div>
+<span class="text-[10px] font-label-mono px-1.5 py-0.5 rounded bg-surface-container-low text-primary font-semibold">In-range</span>
+</div>
+<!-- Indicator 5: Sunshine Hours Warning -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-error-container/20 border border-error/40 hover:border-error transition-all shadow-sm group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-error text-on-error flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-base animate-pulse">sunny</span>
+</div>
+<div>
+<p class="text-[11px] text-error font-semibold uppercase font-label-mono tracking-wider">Sunshine Hours</p>
+<p class="text-sm font-bold text-error mt-0.5">Deficit (-14d)</p>
+</div>
+</div>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-error text-on-error text-[10px] font-bold font-label-mono uppercase tracking-wider">Alert</span>
+</div>
+</div>
+</section>
+<!-- Strictly Weather-Constrained Insight Alert Panel -->
+<div class="relative overflow-hidden rounded-xl border border-error/30 bg-surface-container-lowest p-5 shadow-sm">
+<div class="absolute top-0 left-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pl-2">
+<div class="flex items-start gap-3.5">
+<div class="size-10 rounded-xl bg-error/10 text-error flex items-center justify-center shrink-0 mt-0.5 border border-error/20">
+<span class="material-symbols-outlined text-xl">thunderstorm</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error text-on-error text-[10px] font-bold font-label-mono uppercase tracking-wider">Yield Impact Alert</span>
+<span class="text-xs text-secondary font-label-mono">• Rambukkana Sensor Array #4B (Kegalle Basin)</span>
+<span class="text-xs font-label-mono text-error font-medium px-2 py-0.5 rounded bg-error-container/40">Confidence: 94.2%</span>
+</div>
+<p class="text-on-surface text-sm md:text-base font-semibold leading-snug">
+                AI models forecast a <span class="text-error font-bold">10.0% supply deficit</span> in mid-February Codiaeum yield resulting from a 14-day persistent direct sunlight deficiency.
+              </p>
+<div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
+<div class="flex items-center gap-1.5 font-label-mono text-error font-semibold">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                  Estimated Loss: -1,250 units
+                </div>
+<div class="flex items-center gap-1.5 font-label-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_clock</span>
+                  Critical Window: Feb 10 – Feb 24 (W2-W3)
+                </div>
+<div class="flex items-center gap-1.5 font-label-mono text-primary font-semibold bg-primary/10 px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-sm">tips_and_updates</span>
+                  Countermeasure: Deploy Auxiliary LED/HID Arrays +4.5h/day
+                </div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 md:self-center">
+<button class="px-3.5 py-2 rounded-lg bg-error hover:bg-error/90 text-on-error font-label-mono text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">tune</span>
+              Deploy Remediation
+            </button>
+</div>
+</div>
+</div>
+<!-- 2. Control Panel: Variety Dropdown and Forecast Timeline Slider -->
+<section class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex flex-col md:flex-row gap-6 items-center justify-between">
+<!-- Variety Selector -->
+<div class="w-full md:w-1/2 flex flex-col gap-2">
+<div class="flex items-center justify-between text-sm">
+<label class="font-semibold text-on-surface flex items-center gap-1.5" for="variety-select">
+<span class="material-symbols-outlined text-primary text-base">potted_plant</span>
+                Target Crop Variety
+              </label>
+<span class="text-xs text-secondary font-label-mono bg-surface-container-low px-2 py-0.5 rounded border border-outline-variant/30">Zone: Rambukkana Sector A</span>
+</div>
+<div class="relative group">
+<select class="w-full h-11 pl-3.5 pr-10 bg-surface-container-low hover:bg-surface-container-lowest border border-outline-variant text-on-surface text-sm font-medium rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm" id="variety-select">
+<option selected="" value="codiaeum">Codiaeum variegatum (Croton Mammy / Petra)</option>
+<option value="dracaena">Dracaena sanderiana (Lucky Bamboo)</option>
+<option value="aglaonema">Aglaonema commutatum (Silver Queen)</option>
+<option value="anthurium">Anthurium andraeanum (Flamingo Lily)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Forecast Timeline Slider -->
+<div class="w-full md:w-1/2 flex flex-col gap-2">
+<div class="flex items-center justify-between text-sm">
+<label class="font-semibold text-on-surface flex items-center gap-1.5" for="timeline-slider">
+<span class="material-symbols-outlined text-primary text-base">date_range</span>
+                Forecast Timeline Horizon
+              </label>
+<span class="font-label-mono text-xs font-bold px-2.5 py-0.5 bg-primary/10 text-primary rounded-full border border-primary/20" id="slider-display">
+                2 Months (Mid-March)
+              </span>
+</div>
+<div class="pt-2">
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none transition-all" id="timeline-slider" max="3" min="1" step="1" type="range" value="2">
+<div class="flex justify-between text-xs text-secondary font-label-mono mt-2">
+<span class="cursor-pointer hover:text-primary transition-colors flex items-center gap-1"><span class="size-1.5 rounded-full bg-outline-variant"></span>1 Month (30d)</span>
+<span class="cursor-pointer font-bold text-primary hover:text-primary transition-colors flex items-center gap-1"><span class="size-1.5 rounded-full bg-primary"></span>2 Months (60d)</span>
+<span class="cursor-pointer hover:text-primary transition-colors flex items-center gap-1"><span class="size-1.5 rounded-full bg-outline-variant"></span>3 Months (90d)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Main Chart: Projected Supply vs Contract Demand -->
+<section class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/20">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-on-surface text-lg font-bold leading-tight font-headline-lg">Projected Supply vs. Contract Demand</h3>
+<span class="text-[10px] font-label-mono uppercase px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold border border-primary/20">Dynamic Model v3.4</span>
+</div>
+<p class="text-xs md:text-sm text-secondary mt-0.5">Bi-weekly volumetric projections reconciled against agricultural contract baselines</p>
+</div>
+<div class="flex flex-wrap items-center gap-3 md:gap-4 text-xs font-medium">
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<span class="w-3 h-1 bg-primary rounded-full ring-2 ring-primary/30"></span>
+<span class="text-on-surface font-label-mono text-xs font-semibold">Projected Supply</span>
+</div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<span class="w-4 h-0.5 border-t-2 border-dashed border-[#764900]"></span>
+<span class="text-on-surface font-label-mono text-xs font-semibold">Contract Demand (11,500)</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-error-container/30 border border-error/30 text-error">
+<span class="size-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-mono text-xs font-bold">Deficit Period (Feb W2)</span>
+</div>
+</div>
+</div>
+<!-- Interactive Modern Dual-Line Chart Area -->
+<div class="pt-6">
+<!-- Chart Container with Y-Axis and Canvas -->
+<div class="relative flex h-72 w-full">
+<!-- Y-Axis Labels -->
+<div class="w-12 h-60 flex flex-col justify-between items-end pr-2 text-[11px] font-label-mono text-secondary select-none">
+<span class="">14,000</span>
+<span class="text-primary font-semibold">12,500</span>
+<span class="text-[#764900] font-bold bg-tertiary-fixed/40 px-1 rounded">11,500</span>
+<span class="text-error font-semibold">10,000</span>
+<span class="">8,000</span>
+</div>
+<!-- Main Chart Canvas Area -->
+<div class="flex-1 h-60 relative border-b border-l border-outline-variant/40">
+<!-- Horizontal Guideline Grid -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-25">
+<div class="border-b border-outline w-full"></div>
+<div class="border-b border-outline w-full"></div>
+<div class="border-b border-outline w-full"></div>
+<div class="border-b border-outline w-full"></div>
+<div class="border-b border-outline w-full"></div>
+</div>
+<!-- High-End Interactive SVG Dual-Line Chart -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 700 240">
+<defs>
+<!-- Gradient for Projected Supply Area -->
+<linearGradient id="supplyGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#004532" stop-opacity="0.35"></stop>
+<stop offset="70%" stop-color="#004532" stop-opacity="0.05"></stop>
+<stop offset="100%" stop-color="#004532" stop-opacity="0.0"></stop>
+</linearGradient>
+<!-- Gradient for Deficit Area Dip -->
+<linearGradient id="deficitGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ba1a1a" stop-opacity="0.45"></stop>
+<stop offset="100%" stop-color="#ba1a1a" stop-opacity="0.05"></stop>
+</linearGradient>
+<!-- Filter for Glow on Data Line -->
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<feDropShadow dx="0" dy="3" flood-color="#004532" flood-opacity="0.3" stdDeviation="3"></feDropShadow>
+</filter>
+<filter height="140%" id="deficitGlow" width="140%" x="-20%" y="-20%">
+<feDropShadow dx="0" dy="2" flood-color="#ba1a1a" flood-opacity="0.4" stdDeviation="4"></feDropShadow>
+</filter>
+</defs>
+<!-- Target Baseline (Contract Demand: 11,500 units at Y=120) -->
+<line opacity="0.85" stroke="#764900" stroke-dasharray="6 4" stroke-width="2" x1="0" x2="700" y1="120" y2="120"></line>
+<rect fill="#ffddb8" fill-opacity="0.75" height="20" rx="4" width="155" x="540" y="106"></rect>
+<text fill="#563400" font-family="JetBrains Mono" font-size="10" font-weight="700" x="548" y="120">Contract Min: 11,500</text>
+<!-- Highlight Deficit Fill Region between W1, W2, and W3 -->
+<path d="M 233 120 L 233 104 C 290 120, 310 166, 350 166 C 390 166, 420 136, 466 136 L 466 120 Z" fill="url(#deficitGradient)" opacity="0.8"></path>
+<!-- Supply Smooth Filled Area -->
+<path d="M 50 84 C 95 72, 110 68, 140 68 C 185 68, 205 95, 233 104 C 290 122, 310 166, 350 166 C 390 166, 420 136, 466 136 C 515 136, 545 84, 580 76 C 620 68, 640 55, 665 52 L 665 240 L 50 240 Z" fill="url(#supplyGradient)"></path>
+<!-- Supply Projected Line (Smooth Spline) -->
+<path d="M 50 84 C 95 72, 110 68, 140 68 C 185 68, 205 95, 233 104 C 290 122, 310 166, 350 166 C 390 166, 420 136, 466 136 C 515 136, 545 84, 580 76 C 620 68, 640 55, 665 52" fill="none" filter="url(#glow)" stroke="#004532" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Milestone Vertical Guides -->
+<line opacity="0.4" stroke="#bec9c2" stroke-dasharray="3 3" stroke-width="1" x1="50" x2="50" y1="84" y2="240"></line>
+<line opacity="0.4" stroke="#bec9c2" stroke-dasharray="3 3" stroke-width="1" x1="140" x2="140" y1="68" y2="240"></line>
+<line opacity="0.4" stroke="#bec9c2" stroke-dasharray="3 3" stroke-width="1" x1="233" x2="233" y1="104" y2="240"></line>
+<line opacity="0.7" stroke="#ba1a1a" stroke-dasharray="3 3" stroke-width="1.5" x1="350" x2="350" y1="166" y2="240"></line>
+<line opacity="0.5" stroke="#764900" stroke-dasharray="3 3" stroke-width="1" x1="466" x2="466" y1="136" y2="240"></line>
+<line opacity="0.4" stroke="#bec9c2" stroke-dasharray="3 3" stroke-width="1" x1="580" x2="580" y1="76" y2="240"></line>
+<line opacity="0.4" stroke="#bec9c2" stroke-dasharray="3 3" stroke-width="1" x1="665" x2="665" y1="52" y2="240"></line>
+<!-- Milestone Circles -->
+<!-- Jan W3: 12,400 -->
+<g class="cursor-pointer group/point">
+<circle cx="50" cy="84" fill="#ffffff" r="6" stroke="#004532" stroke-width="2.5"></circle>
+<circle cx="50" cy="84" fill="#004532" r="2.5"></circle>
+<text fill="#121c2a" font-family="JetBrains Mono" font-size="10" font-weight="600" text-anchor="middle" x="50" y="68">12,400</text>
+</g>
+<!-- Jan W4: 12,800 -->
+<g class="cursor-pointer group/point">
+<circle cx="140" cy="68" fill="#ffffff" r="6" stroke="#004532" stroke-width="2.5"></circle>
+<circle cx="140" cy="68" fill="#004532" r="2.5"></circle>
+<text fill="#121c2a" font-family="JetBrains Mono" font-size="10" font-weight="600" text-anchor="middle" x="140" y="52">12,800</text>
+</g>
+<!-- Feb W1: 11,900 -->
+<g class="cursor-pointer group/point">
+<circle cx="233" cy="104" fill="#ffffff" r="6" stroke="#004532" stroke-width="2.5"></circle>
+<circle cx="233" cy="104" fill="#004532" r="2.5"></circle>
+<text fill="#121c2a" font-family="JetBrains Mono" font-size="10" font-weight="600" text-anchor="middle" x="233" y="88">11,900</text>
+</g>
+<!-- Feb W2: 10,350 (DEFICIT HIGHLIGHT WITH ACCENT BADGE) -->
+<g class="cursor-pointer group/point">
+<circle cx="350" cy="166" fill="#ba1a1a" filter="url(#deficitGlow)" r="8" stroke="#ffdad6" stroke-width="3"></circle>
+<circle cx="350" cy="166" fill="#ffffff" r="3"></circle>
+<!-- Interactive Tooltip Callout Box directly on Feb W2 -->
+<g transform="translate(250, 182)">
+<rect fill="#ba1a1a" filter="url(#deficitGlow)" height="38" rx="6" width="200"></rect>
+<polygon fill="#ba1a1a" points="100,-6 94,0 106,0"></polygon>
+<text fill="#ffffff" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle" x="100" y="16">-10% Drop • 10,350 Units</text>
+<text fill="#ffdad6" font-family="JetBrains Mono" font-size="9" font-weight="500" text-anchor="middle" x="100" y="29">Deficit: -1,150 vs 11,500 target</text>
+</g>
+</g>
+<!-- Feb W3: 11,100 (Partial Recovery) -->
+<g class="cursor-pointer group/point">
+<circle cx="466" cy="136" fill="#ffffff" r="6" stroke="#764900" stroke-width="2.5"></circle>
+<circle cx="466" cy="136" fill="#764900" r="2.5"></circle>
+<rect fill="#ffddb8" height="18" rx="3" width="56" x="438" y="146"></rect>
+<text fill="#563400" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle" x="466" y="159">11,100</text>
+</g>
+<!-- Mar W1: 12,600 -->
+<g class="cursor-pointer group/point">
+<circle cx="580" cy="76" fill="#ffffff" r="6" stroke="#004532" stroke-width="2.5"></circle>
+<circle cx="580" cy="76" fill="#004532" r="2.5"></circle>
+<text fill="#121c2a" font-family="JetBrains Mono" font-size="10" font-weight="600" text-anchor="middle" x="580" y="60">12,600</text>
+</g>
+<!-- Mar W2: 13,200 -->
+<g class="cursor-pointer group/point">
+<circle cx="665" cy="52" fill="#ffffff" r="6" stroke="#004532" stroke-width="2.5"></circle>
+<circle cx="665" cy="52" fill="#004532" r="2.5"></circle>
+<text fill="#121c2a" font-family="JetBrains Mono" font-size="10" font-weight="600" text-anchor="middle" x="665" y="38">13,200</text>
+</g>
+</svg>
+<!-- X-Axis Labels positioned under milestone points -->
+<div class="absolute -bottom-7 inset-x-0 flex justify-between px-2 text-xs font-label-mono">
+<span class="text-on-surface-variant font-medium">Jan W3</span>
+<span class="text-on-surface-variant font-medium">Jan W4</span>
+<span class="text-on-surface-variant font-medium">Feb W1</span>
+<span class="text-error font-bold px-1.5 py-0.5 rounded bg-error-container/30">Feb W2</span>
+<span class="text-[#764900] font-semibold px-1 rounded bg-tertiary-fixed/30">Feb W3</span>
+<span class="text-on-surface-variant font-medium">Mar W1</span>
+<span class="text-on-surface-variant font-medium">Mar W2</span>
+</div>
+</div>
+</div>
+<!-- Chart Metric Cards Footer -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12 pt-2">
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between shadow-sm hover:border-primary/40 transition-all">
+<div>
+<div class="flex items-center gap-1 text-xs text-secondary font-medium">
+<span class="">Contracted Target</span>
+<span class="size-1.5 rounded-full bg-secondary"></span>
+</div>
+<p class="text-xl font-bold text-on-surface font-label-mono mt-0.5">11,500 <span class="text-xs font-normal text-secondary">units/bi-wk</span></p>
+<span class="text-[11px] font-label-mono text-secondary mt-1 inline-block">Minimum committed volume</span>
+</div>
+<div class="size-11 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">assignment_turned_in</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between shadow-sm hover:border-primary/40 transition-all">
+<div>
+<div class="flex items-center gap-1 text-xs text-primary font-medium">
+<span class="">Projected Average</span>
+<span class="size-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+</div>
+<p class="text-xl font-bold text-primary font-label-mono mt-0.5">12,050 <span class="text-xs font-normal text-secondary">units/bi-wk</span></p>
+<span class="text-[11px] font-label-mono text-emerald-600 mt-1 inline-block font-medium">+4.7% surplus aggregate</span>
+</div>
+<div class="size-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">trending_up</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-error-container/20 border border-error/30 flex items-center justify-between shadow-sm hover:border-error transition-all">
+<div>
+<div class="flex items-center gap-1 text-xs text-error font-semibold">
+<span class="">Mid-Feb Sunshine Deficit</span>
+<span class="size-1.5 rounded-full bg-error animate-ping"></span>
+</div>
+<p class="text-xl font-bold text-error font-label-mono mt-0.5">-1,150 <span class="text-xs font-normal text-on-error-container">units gap</span></p>
+<span class="text-[11px] font-label-mono text-error font-medium mt-1 inline-block">Critical alert: Feb W2 dip</span>
+</div>
+<div class="size-11 rounded-xl bg-error text-on-error flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-xl">wb_cloudy</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Zone Micro-Climate Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-6">
+<div class="p-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl flex items-center gap-4 shadow-sm hover:border-primary/40 transition-all">
+<div class="w-16 h-16 rounded-xl bg-center bg-cover shrink-0 border border-outline-variant/40 shadow-inner" data-alt="Vibrant close-up of glossy broad leaves of Codiaeum variegatum croton plant showing bright yellow, green, and deep red veins in warm morning light inside a modern nursery." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBTB-vEQwC__nw2WrMceYE_OGK5sYs7Ukpm9ffsZTkuKzaTlLCk15W6dhBKSoc_s-Gc3jWv8k4TcfoRuGoyoqZmWXtS7uya4MQJvDiBE0AO9KIxyJp3d-SzyZIDzlUGBiU9DNkb3L6wOayotU5DJW3PTRL298v0mJocrIFL8iObzQ3Qi_4YP4fVWOEYfCZk-Kvpxs8gvcvVV_PAP9Mg0CXWpsOVy98G5gzl2CscqmoknlypLJ4Ehi5D&quot;);"></div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-mono text-[11px] text-primary font-semibold uppercase tracking-wider">Botanical Parameter</span>
+<span class="text-[10px] font-label-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-medium">FloraSense ID: CR-402</span>
+</div>
+<h4 class="text-sm font-bold text-on-surface mt-0.5 truncate">Codiaeum variegatum (Croton Mammy)</h4>
+<p class="text-xs text-on-surface-variant mt-1 leading-normal">Critical sunshine threshold: min 6.5h direct lux/day required to maintain foliar coloration, chloroplastic density, and internodal elongation.</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl flex items-center gap-4 shadow-sm hover:border-primary/40 transition-all">
+<div class="w-16 h-16 rounded-xl bg-center bg-cover shrink-0 border border-outline-variant/40 shadow-inner" data-alt="Weather monitoring meteorological station with anemometer and solar radiation sensors set against misty agricultural hills in Rambukkana under overcast sky, high clarity realism." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC5h0aTG7UqeQhhDrVZ9HpDM9YeUD02U50cRdlZ9GQ62YVsu7hjjMQse-vIWRCrCbmOSVzRwFZX-iyGOm4SqfLId2YPNjGlmxndAxrA84njXFco7YtbdOgRGgAnZJWX9111dEQCQKsyhKjtnhSHqBtTr_6Jpxuo65syEYUQCQxgjZiX7TPes5L3okUeixBGYvxHtltwhNJkMBZNw6ZXUKyWApP5AF9BU3OXHbEUW3Wj1tqVHM7v049B&quot;);"></div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-mono text-[11px] text-[#764900] font-semibold uppercase tracking-wider">Micro-Climate Telemetry</span>
+<span class="text-[10px] font-label-mono px-2 py-0.5 rounded bg-tertiary-fixed text-[#563400] font-medium">Station Alpha #4B</span>
+</div>
+<h4 class="text-sm font-bold text-on-surface mt-0.5 truncate">Rambukkana Agro-Station Alpha</h4>
+<p class="text-xs text-on-surface-variant mt-1 leading-normal">Sub-equatorial low-pressure trough active over Kegalle basin generating dense cloud cover and diffuse PAR levels through Feb 24.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive timeline slider micro-interaction
+  const slider = document.getElementById('timeline-slider');
+  const display = document.getElementById('slider-display');
+  
+  if (slider && display) {
+    slider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (val === "1") {
+        display.textContent = "1 Month (Mid-February)";
+      } else if (val === "2") {
+        display.textContent = "2 Months (Mid-March)";
+      } else {
+        display.textContent = "3 Months (Mid-April)";
+      }
+    });
+  }
+</script>
+
+
+</body></html>

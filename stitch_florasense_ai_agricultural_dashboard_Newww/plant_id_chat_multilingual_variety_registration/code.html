@@ -1,0 +1,497 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Plant ID &amp; Chat - Florasense Desktop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "on-surface": "#121c2a",
+                      "outline": "#6f7973",
+                      "on-primary-fixed-variant": "#00513b",
+                      "on-secondary-fixed-variant": "#43474c",
+                      "outline-variant": "#bec9c2",
+                      "surface-container": "#e6eeff",
+                      "background": "#f8f9ff",
+                      "on-secondary-fixed": "#171c20",
+                      "on-primary-fixed": "#002116",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "secondary-fixed": "#dfe3e9",
+                      "on-surface-variant": "#3f4944",
+                      "surface": "#f8f9ff",
+                      "primary-fixed": "#a6f2d1",
+                      "on-background": "#121c2a",
+                      "secondary-fixed-dim": "#c3c7cd",
+                      "primary": "#004532",
+                      "inverse-primary": "#8bd6b6",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "tertiary-fixed": "#ffddb8",
+                      "tertiary-container": "#764900",
+                      "surface-container-low": "#eff4ff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#065f46",
+                      "tertiary": "#563400",
+                      "surface-dim": "#d0dbed",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#dee9fc",
+                      "on-tertiary-container": "#ffb960",
+                      "secondary-container": "#dfe3e9",
+                      "secondary": "#5a5f64",
+                      "on-tertiary-fixed": "#2a1700",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-bright": "#f8f9ff",
+                      "on-secondary-container": "#60656a",
+                      "surface-variant": "#d9e3f6",
+                      "surface-container-highest": "#d9e3f6",
+                      "on-primary-container": "#8bd6b7",
+                      "inverse-surface": "#27313f",
+                      "surface-tint": "#1b6b51",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#8bd6b6",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "lg": "40px",
+                      "base": "8px",
+                      "md": "24px",
+                      "margin-mobile": "16px",
+                      "xl": "64px",
+                      "sm": "12px",
+                      "margin-desktop": "32px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "label-mono": ["JetBrains Mono"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "title-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Smooth scrolling for chat */
+        .chat-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background-color: #bec9c2;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface-container dark:bg-inverse-surface h-full w-64 left-0 hidden md:flex flex-col fixed left-0 top-0 h-full flex flex-col p-md border-r border-outline-variant dark:border-outline z-40">
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">Florasense</h1>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mt-1">Commercial Nursery Portal</p>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<!-- Active: Plant ID & Chat -->
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-xl font-bold scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-weight="fill">psychology</span>
+<span>Plant ID &amp; Chat</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">center_focus_strong</span>
+<span>Disease Scanner</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span>Export Quality</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Supply Forecast</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<div class="mt-4 flex items-center gap-3 p-2 bg-surface-container-highest rounded-xl border border-outline-variant/50">
+<div class="w-10 h-10 rounded-full bg-surface overflow-hidden border border-outline-variant">
+<img alt="Nursery Manager Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a nursery manager in a bright, modern greenhouse setting, wearing practical outdoor attire. The lighting is soft and natural, conveying a knowledgeable and approachable demeanor, fitting for a corporate floriculture portal avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQdUvX1XW0LRSaoOgCJqtxbWJDyQD3P4eiVTpqs8Hd1HFcLL9KYMFHhz6dcSoAirkpWGNCzpoxpNAv3P3I6eji6z-TGcxyCNuPGdjSUrVBrK7lyUgKNYqPsoyACJog1FD4wN9I0T_d92SyQBOIptEbYuEHuwelMa5Jt8K5xKF3NhLSPhn7wgmYx5y-owBxatmRfepfl7n79kcwDAruUX7qB9kl3f09PCOtf_opeHWBLTYWQRzjmg-b">
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">J. Doe</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Manager</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 flex flex-col h-screen relative">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-surface flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-30 border-b border-outline-variant dark:border-outline shrink-0">
+<div class="flex items-center">
+<!-- Mobile title only, hidden on desktop since sidebar has it -->
+<h1 class="md:hidden font-title-md text-title-md font-bold text-primary">Florasense</h1>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="relative flex items-center">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors text-body-sm font-semibold shadow-sm" id="langDropdownBtn" onclick="document.getElementById('langDropdownMenu').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">language</span>
+<span id="currentLangLabel">EN</span>
+<span class="text-xs text-on-surface-variant font-normal font-label-mono">English</span>
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">expand_more</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-2 w-40 bg-surface border border-outline-variant rounded-xl shadow-lg p-1.5 z-50 flex flex-col gap-1 backdrop-blur-md" id="langDropdownMenu">
+<button class="flex items-center justify-between px-3 py-2 text-left rounded-lg text-body-sm font-semibold hover:bg-surface-container transition-colors text-primary bg-surface-container-low w-full" onclick="selectLang('EN', 'English')">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>English (EN)</span>
+</span>
+<span class="material-symbols-outlined text-primary text-sm">check</span>
+</button>
+<button class="flex items-center justify-between px-3 py-2 text-left rounded-lg text-body-sm font-semibold hover:bg-surface-container transition-colors text-on-surface w-full" onclick="selectLang('SI', 'සිංහල')">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-transparent"></span>
+<span>සිංහල (SI)</span>
+</span>
+</button>
+</div>
+</div>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Layout: Split Screen -->
+<div class="flex-1 flex overflow-hidden bg-surface-container-lowest">
+<!-- Left Column: Chat Interface -->
+<div class="w-7/12 flex flex-col border-r border-outline-variant relative">
+<!-- Chat Header -->
+<div class="px-md py-sm border-b border-outline-variant/50 flex items-center justify-between bg-surface/80 backdrop-blur-sm z-10 shrink-0">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Florasense Assistant</h2>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mt-1">AI ID Session Active</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">psychology</span>
+</div>
+<!-- Chat Feed -->
+<div class="flex-1 overflow-y-auto chat-scroll p-md flex flex-col gap-6 pb-32">
+<!-- AI Message -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" style="font-size: 18px;">psychology</span>
+</div>
+<div class="bg-surface-container-high p-4 rounded-2xl rounded-tl-sm border border-outline-variant/30 text-on-surface">
+<p class="font-body-md text-body-md">Good morning. Florasense AI ready. Upload an image or describe a specimen for identification and care protocol analysis.</p>
+<span class="font-label-mono text-label-mono text-on-surface-variant mt-2 block">08:42 AM</span>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-4 max-w-[85%] self-end flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-size: 18px;">person</span>
+</div>
+<div class="bg-primary text-on-primary p-4 rounded-2xl rounded-tr-sm">
+<p class="font-body-md text-body-md mb-3">Can you identify this specimen from Zone 4? It's showing some slight variegation changes.</p>
+<div class="rounded-xl overflow-hidden border border-primary-fixed-dim/30">
+<img class="w-64 h-48 object-cover" data-alt="Close up of an Aglaonema Silver Queen plant leaf showing intricate silver and green variegation patterns, captured in a brightly lit, professional greenhouse setting. The lighting emphasizes the glossy texture and healthy cellular structure of the foliage, adhering to a clean, modern agricultural aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG-P6m8bfIbTWU6ljt3xgAbkaf-_iAHEuD5SPYwYsTMWUKX904G3YuIN4wz9sO7WEwoPFWrn24w2H_BQ4PqzuPHk9im9WeMGTd9kOclQOBSSk16juOza950xj1O3ZduConiXBS03YjA9SRUm7piqWbw91nA2Kj7WSi5M4MplyAbm0IcLTwjOnE0zTGrmUbpJOPkj4-Lx1tPbthl4iaAx-qs9kD1PMKu9a6PMxmDrxs5Kk3Vh9bcfcm">
+</div>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim mt-2 block text-right">08:45 AM</span>
+</div>
+</div>
+<!-- AI Processing Indicator (Simulated) -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container animate-spin" style="font-size: 18px;">sync</span>
+</div>
+<div class="bg-surface-container p-4 rounded-2xl rounded-tl-sm border border-outline-variant/30 text-on-surface">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+                                Analyzing foliar patterns and structural geometry...
+                            </p>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" style="font-size: 18px;">psychology</span>
+</div>
+<div class="bg-surface-container-high p-4 rounded-2xl rounded-tl-sm border border-outline-variant/30 text-on-surface">
+<p class="font-body-md text-body-md mb-2">Analysis complete. High confidence match found.</p>
+<p class="font-body-md text-body-md">The specimen is identified as <strong class="text-primary-container">Aglaonema 'Silver Queen'</strong>. I've populated the detailed profile and care protocols in the adjacent panel for your review.</p>
+<span class="font-label-mono text-label-mono text-on-surface-variant mt-2 block">08:46 AM</span>
+</div>
+</div>
+</div>
+<!-- Chat Input Area -->
+<div class="absolute bottom-0 left-0 w-full p-md bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant">
+<div class="relative flex items-center">
+<button class="absolute left-3 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_a_photo</span>
+</button>
+<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-full py-3 pl-12 pr-14 font-body-md text-body-md text-on-surface placeholder-on-surface-variant shadow-sm transition-all" placeholder="Ask about care, diseases, or upload another specimen..." type="text">
+<button class="absolute right-2 p-2 bg-primary text-on-primary rounded-full hover:bg-primary-container transition-colors flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined" style="font-size: 20px;">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: ID Panel (Field Card Style) -->
+<div class="w-5/12 bg-background overflow-y-auto p-gutter relative">
+<!-- ID Header Card -->
+<div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">yard</span>
+<span class="font-label-mono text-label-mono uppercase text-on-surface-variant font-bold tracking-wider">Catalogue Management</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-body-sm font-bold shadow-sm transition-all hover:shadow hover:scale-[1.02]" onclick="openAddVarietyModal()">
+<span class="material-symbols-outlined" style="font-size: 18px;">add_circle</span>
+<span>Add New Variety</span>
+</button>
+</div><div class="bg-surface border border-outline-variant rounded-xl p-md mb-gutter shadow-sm relative overflow-hidden">
+<!-- Subtle organic background wash -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/20 to-transparent pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="inline-flex items-center gap-1 bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-label-mono text-label-mono uppercase mb-2">
+<span class="material-symbols-outlined" style="font-size: 14px;">check_circle</span>
+                                    98% Match
+                                </span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Aglaonema 'Silver Queen'</h3>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Chinese Evergreen</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mb-6 leading-relaxed">
+                            A highly durable, low-light tolerant aroid prized for its extensive silver variegation. Optimal for interior commercial installations. Variegation intensity directly correlates with light exposure levels.
+                        </p>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-body-md text-body-md font-bold py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">bar_chart</span>
+                            View Future Availability Forecast
+                        </button>
+</div>
+</div>
+<!-- Care Protocols Grid -->
+<div class="mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">science</span>
+<h4 class="font-title-md text-title-md text-on-surface font-semibold">Care Protocols</h4>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Watering -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 mb-3 text-primary-container">
+<span class="material-symbols-outlined">water_drop</span>
+<span class="font-label-mono text-label-mono uppercase font-bold">Irrigation</span>
+</div>
+<p class="font-body-md text-body-md font-semibold text-on-surface mb-1">Moderate</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Allow top 50% of substrate to dry between cycles. Sensitive to root rot if oversaturated.</p>
+</div>
+<!-- Lighting -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 mb-3 text-tertiary-container">
+<span class="material-symbols-outlined">light_mode</span>
+<span class="font-label-mono text-label-mono uppercase font-bold">Luminance</span>
+</div>
+<p class="font-body-md text-body-md font-semibold text-on-surface mb-1">Low to Medium Indirect</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Maintains variegation better in medium light. Avoid direct solar radiation to prevent scorch.</p>
+</div>
+<!-- Temp -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 mb-3 text-error">
+<span class="material-symbols-outlined">thermostat</span>
+<span class="font-label-mono text-label-mono uppercase font-bold">Temperature</span>
+</div>
+<p class="font-body-md text-body-md font-semibold text-on-surface mb-1">18°C - 27°C</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Highly intolerant of drafts or temperatures below 15°C. Maintain stable climate control.</p>
+</div>
+<!-- Fertilizer -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 mb-3 text-secondary">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-label-mono text-label-mono uppercase font-bold">Nutrition</span>
+</div>
+<p class="font-body-md text-body-md font-semibold text-on-surface mb-1">Balanced NPK (Liquid)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Apply diluted 20-20-20 solution monthly during active growth phase. Suspend in dormancy.</p>
+</div>
+</div>
+<!-- Zone Data Integration -->
+<div class="mt-gutter bg-surface-container-low border border-outline-variant/50 rounded-xl p-4">
+<h5 class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-3">Zone 4 Contextual Analysis</h5>
+<div class="flex items-center justify-between text-body-sm text-on-surface">
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Current Humidity: 65% (Optimal)</span>
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span> Light Levels: slightly low</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/40 backdrop-blur-sm transition-opacity duration-200" id="addVarietyModal">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<div class="px-6 py-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-low shrink-0">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 20px;">local_florist</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Add New Plant Variety</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Register Cultivar to Florasense Portal</p>
+</div>
+</div>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" onclick="closeAddVarietyModal()">
+<span class="material-symbols-outlined" style="font-size: 22px;">close</span>
+</button>
+</div>
+<form class="p-6 overflow-y-auto flex-1 flex flex-col gap-4 text-left" id="addVarietyForm" onsubmit="handleSaveVariety(event)">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Botanical Name <span class="text-error">*</span></label>
+<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface placeholder-outline text-body-sm transition-all" placeholder="e.g., Philodendron hederaceum" required="" type="text">
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Common Name <span class="text-error">*</span></label>
+<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface placeholder-outline text-body-sm transition-all" placeholder="e.g., Heartleaf Philodendron" required="" type="text">
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Variety / Cultivar</label>
+<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface placeholder-outline text-body-sm transition-all" placeholder="e.g., 'Lemon Lime' or 'Brasil'" type="text">
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Growing Zone / Sector <span class="text-error">*</span></label>
+<select class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface text-body-sm transition-all" required="">
+<option value="Zone 1">Zone 1 - High Humidity Tropicals</option>
+<option value="Zone 2">Zone 2 - Temperate propagation</option>
+<option value="Zone 3">Zone 3 - Arid &amp; Succulents</option>
+<option selected="" value="Zone 4">Zone 4 - Aroid Commercial Canopy</option>
+<option value="Zone 5">Zone 5 - Export Quarantine</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Irrigation Frequency</label>
+<select class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface text-body-sm transition-all">
+<option>Frequent (Substrate moist)</option>
+<option selected="">Moderate (Top 50% dry)</option>
+<option>Infrequent (Full dry cycle)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Optimal Luminance</label>
+<select class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface text-body-sm transition-all">
+<option>Low / Shade tolerant</option>
+<option selected="">Medium to bright indirect</option>
+<option>High / Full filtered sun</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Care Protocol &amp; Foliar Notes</label>
+<textarea class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg py-2 px-3 font-body-sm text-on-surface placeholder-outline text-body-sm transition-all" placeholder="Describe watering thresholds, temperature limits, and variegation protection guidelines..." rows="2"></textarea>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase mb-1.5">Specimen Image</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:border-primary transition-colors cursor-pointer bg-surface-container-low hover:bg-surface-container">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">add_photo_alternate</span>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold">Click or drag image to upload reference leaf photo</p>
+<p class="font-label-mono text-xs text-on-surface-variant">PNG, JPG or WEBP up to 10MB</p>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-end gap-3 mt-2">
+<button class="px-4 py-2 border border-outline-variant text-on-surface rounded-lg font-body-sm font-semibold hover:bg-surface-container transition-colors" onclick="closeAddVarietyModal()" type="button">
+          Cancel
+        </button>
+<button class="px-5 py-2 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-body-sm font-bold shadow-sm transition-colors flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+<span>Save Variety</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<div class="hidden fixed bottom-6 right-6 z-50 bg-primary text-on-primary px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 font-body-sm font-semibold transition-transform" id="toastNotification">
+<span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+<span id="toastMessage">New plant variety registered successfully!</span>
+</div>
+<script>
+  function selectLang(code, label) {
+    var currentLangLabel = document.getElementById('currentLangLabel');
+    if (currentLangLabel) {
+      currentLangLabel.textContent = code;
+      currentLangLabel.nextElementSibling.textContent = label;
+    }
+    var dropdown = document.getElementById('langDropdownMenu');
+    if (dropdown) dropdown.classList.add('hidden');
+  }
+  function openAddVarietyModal() {
+    var modal = document.getElementById('addVarietyModal');
+    if (modal) modal.classList.remove('hidden');
+  }
+  function closeAddVarietyModal() {
+    var modal = document.getElementById('addVarietyModal');
+    if (modal) modal.classList.add('hidden');
+  }
+  function handleSaveVariety(e) {
+    e.preventDefault();
+    closeAddVarietyModal();
+    var toast = document.getElementById('toastNotification');
+    if (toast) {
+      toast.classList.remove('hidden');
+      setTimeout(function() {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+  }
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('langDropdownBtn');
+    var menu = document.getElementById('langDropdownMenu');
+    if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+</script></body></html>
